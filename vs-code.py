@@ -40,7 +40,7 @@ context.keymap({
     # Navigating text
     'pizza (0 | oh | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9)+': jump_to_line,
 
-    
+    '[toggle] terminal': Key('alt-f12'),
 
     # Selecting text
     'select line': Key('cmd-right cmd-shift-left'),
@@ -55,6 +55,9 @@ context.keymap({
     # Finding text
     '(previous | last)': Key('cmd-shift-g'),
     'find next <dgndictation>': jump_to_next_word_instance,
+
+    '(dupe | duplicate)': Key('cmd-d'),
+
 
 
 })

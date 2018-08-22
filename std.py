@@ -101,7 +101,7 @@ formatters = {
     'snake':  (True,  lambda i, word, _: word if i == 0 else '_'+word),
     'smash':  (True,  lambda i, word, _: word),
     # spinal or kebab?
-    'kebab':  (True,  lambda i, word, _: word if i == 0 else '-'+word),
+    'truck':  (True,  lambda i, word, _: word if i == 0 else '-'+word),
     # 'sentence':  (False, lambda i, word, _: word.capitalize() if i == 0 else word),
     'title':  (False, lambda i, word, _: word.capitalize()),
     'allcaps': (False, lambda i, word, _: word.upper()),
@@ -196,6 +196,10 @@ keymap.update({
     'new folder': Key('shift-cmd-n'),
     '(settings | preferences)': Key('cmd-,'),
     'trash': Key('cmd-delete'),
+    '(show desktop | toggle desktop | hide desktop)': Key('f11'),
+    'windows mode': Key('ctrl-down'),
+    'reverse': Key('tab'),
+    'advance': Key('`'),
 
     # Finder
     'documents': Key('shift-cmd-o'),
@@ -217,8 +221,8 @@ keymap.update({
     'start': Key('cmd-left'),
     'end': Key('cmd-right'),
     '(top | go to top)': Key('cmd-up'),    
-    'flip': Key('fn-up'),    
-    'flop': Key('fn-down'),
+    'page up': Key('pageup'),    
+    'page down': Key('pagedown'),
     'jump [right] word': Key('alt-right'),
     'jump left word': Key('alt-left'),    
 
@@ -289,6 +293,10 @@ keymap.update({
     'run (them | vim)': 'vim ',
     'run L S': 'ls\n',
     'dot pie': '.py',
+    'dot Jay Es': '.js',
+    'dot Sea EsEs': '.css',
+    '(dot flip | dot P H P)': '.php',
+    '(dot sass | dot sassy)': '.scss',
     'run make': 'make\n',
     'run jobs': 'jobs\n',
 

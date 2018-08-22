@@ -1,6 +1,6 @@
 from talon.voice import Context, Key
 
-ides = {
+ides = [
     "com.jetbrains.intellij",
     "com.jetbrains.intellij.ce",
     "com.jetbrains.AppCode",
@@ -13,7 +13,7 @@ ides = {
     "com.jetbrains.rubymine",
     "com.jetbrains.WebStorm",
     "com.google.android.studio",
-}
+]
 
 
 ctx = Context('phpstorm', func=lambda app, win: any(

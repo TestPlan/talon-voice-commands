@@ -40,10 +40,6 @@ def search(m):
     press('cmd-m')
 
 
-def quit(m):
-    press('cmd-q')
-
-
 def scroll_to_top(m):
     press('g')
     press('g')
@@ -58,7 +54,7 @@ def refocus_page(m):
     focus_address_bar(None)
 
     # Escape button
-    # This leaves the focus on the page at previous tab focused point, not the beginning of the page
+    # This leaves the focus on the page at previous tab focused point, not t_he beginning of the page
     press('escape')
 
 
@@ -83,14 +79,45 @@ context.keymap({
     'search': search,
     'print': print_page,
     'top': scroll_to_top,
-    'quit': quit,
+
+    # youtube
+    # disable vimium for youtube shortcuts to work
+    '(play | pause)': Key('k'),
+    'movie mode': Key('f'),
+    '[toggle] theater mode': Key('t'),
+    'restart video': Key('home'),
+    'end video': Key('end'),
+    'volume down': Key('down'),
+    'volume up': Key('up'),
+    '(mute | unmute)': Key('m'),
+    'video search': Key('/'),
+    'slow down': Key('<'),
+    'speed up': Key('>'),
+    '(jump | forward) ten': Key('l'),
+    '(jump | forward) five': Key('right'),
+    'back ten': Key('j'),
+    'back five': Key('left'),
+
+    # not working
+    'previous video': Key('P'),
+    'next video': Key('shift-n'),
+    '(toggle captions | toggle caption)': Key('c'),
 
     'back[ward]': back,
     'forward': forward,
     'reload': Key('cmd-r'),
     'hard reload': Key('cmd-shift-r'),
+    'bookmark': Key('cmd-d'),
+    'toggle bookmark [bar]': Key('cmd-shift-b'),
+    'bookmark manager': Key('cmd-alt-b'),
+    'downloads': Key('cmd-shift-j'),
+    'add extras': Key('ctrl-enter'),
+    'add extras new': Key('ctrl-shift-enter'),
 
     'new tab': Key('cmd-t'),
+    'new window': Key('cmd-n'),
+    'close window': Key('cmd-shift-w'),
+    '(incognito | incog)': Key('cmd-shift-n'),
     'close tab': Key('cmd-w'),
     '(reopen | unclose) tab': Key('cmd-shift-t'),
 
@@ -101,13 +128,15 @@ context.keymap({
     '(end | rightmost) tab': Key('cmd-9'),
 
     'find': Key('cmd-f'),
-    'next': Key('cmd-g'),
-
+    'next match': Key('cmd-g'),
     '(last | prevous)': Key('cmd-shift-g'),
+
+    'clear cash': Key('cmd-shift-backspace'),
 
     # dev tools
     'toggle dev tools': Key('cmd-alt-i'),
     'command [menu]': Key('cmd-shift-p'),
+    '(javascript (counsel | console) | javascript (counsel | console) close)': Key('cmd-alt-j'),
     'next panel': next_panel,
     '(last | prevous) panel': last_panel,
     '[show] application [panel]': lambda m: show_panel('Application'),
@@ -124,8 +153,5 @@ context.keymap({
     '[refocus] dev tools': open_focus_devtools,
 
     # Clipboard
-    'cut': Key('cmd-x'),
-    'copy': Key('cmd-c'),
-    'paste': Key('cmd-v'),
     'paste same style': Key('cmd-alt-shift-v'),
 })
