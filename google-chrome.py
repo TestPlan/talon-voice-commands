@@ -90,7 +90,6 @@ context.keymap({
     'volume down': Key('down'),
     'volume up': Key('up'),
     '(mute | unmute)': Key('m'),
-    'video search': Key('/'),
     'slow down': Key('<'),
     'speed up': Key('>'),
     '(jump | forward) ten': Key('l'),
@@ -98,8 +97,42 @@ context.keymap({
     'back ten': Key('j'),
     'back five': Key('left'),
 
+    # youtube and gmail
+    '(mail | video) search': Key('/'),
+
+    # gmail
+    'compose': Key('c'),
+    '(send mail | send)': Key('cmd-enter'),
+    '(carbon copy | see see)': Key('cmd-shift-c'),
+    '(blind carbon copy | bee see see)': Key('cmd-shift-b'),
+    'misspelled word': Key('cmd-;'),
+    'suggestions': Key('cmd-m'),
+    'remove format': Key('cmd-\\'),
+    'bold': Key('cmd-b'),
+    'italics': Key('cmd-i'),
+    'underline': Key('cmd-u'),
+    'link': Key('cmd-k'),
+    'numbered list': Key('cmd-shift-7'),
+    'bulleted list': Key('cmd-shift-8'),
+    'quote text': Key('cmd-shift-9'),
+    'inbox': Key('g i'),
+    'sent': Key('g t'),
+    'drafts': Key('g d'),
+    'label': Key('g l'),
+    'contacts': Key('g c'),
+    'spam': Key('!'),
+    'trash mail': Key('#'),
+    'reply': Key('r'),
+    'reply all': Key('a'),
+    'forward mail': Key('f'),
+    'expand mail': Key(';'),
+    'collapse mail': Key(':'),
+    'move mail': Key('v'),
+
+
     # not working
     'previous video': Key('P'),
+
     'next video': Key('shift-n'),
     '(toggle captions | toggle caption)': Key('c'),
 
