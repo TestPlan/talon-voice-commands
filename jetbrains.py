@@ -22,6 +22,7 @@ ctx = Context('phpstorm', func=lambda app, win: any(
 keymap = {
     'comment declaration': ['/**', Key('space')],
     'comment block': ['/**', Key('enter')],
+    'block comment': Key('cmd-alt-/'),
 
     '(dupe | duplicate)': Key('cmd-d'),
     'import class': Key('alt-enter enter'),
@@ -40,7 +41,13 @@ keymap = {
     'settings': Key('cmd-,'),
     'grab': Key('alt-up'),
     'shrink': Key('alt-down'),
+    'grab left': Key('cmd-shift-left'),
+    'grab right': Key('cmd-shift-right'),
     'close': Key('cmd-w'),
+    'top': Key('cmd-home'),
+    'bottom': Key('cmd-end'),
+    'grab up': Key('shift-cmd-pageup'),
+    'grab down': Key('shift-cmd-pagedown'),
     # 'rename': Key('shift-f6'),
     'move file': Key('f6'),
     'global search': Key('shift shift'),

@@ -220,13 +220,19 @@ keymap.update({
     '(comment | uncomment)': Key('cmd-/'),
     'start': Key('cmd-left'),
     'end': Key('cmd-right'),
-    '(top | go to top)': Key('cmd-up'),    
     'page up': Key('pageup'),    
     'page down': Key('pagedown'),
     'jump [right] word': Key('alt-right'),
     'jump left word': Key('alt-left'),    
 
-
+    # Selecting text
+    'select line': Key('cmd-right cmd-shift-left'),
+    'select start': Key('cmd-shift-left'),
+    'select end': Key('cmd-shift-right'),
+    'select word': Key('alt-shift-right'),
+    'select left word': Key('alt-shift-left'),
+    'select right': Key('shift-right'),
+    'select left': Key('shift-left'),
 
     'slap': [Key('cmd-right enter')],
     'enter': Key('enter'),

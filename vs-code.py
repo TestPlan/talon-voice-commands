@@ -42,15 +42,17 @@ context.keymap({
 
     '[toggle] terminal': Key('alt-f12'),
 
-    # Selecting text
-    'select line': Key('cmd-right cmd-shift-left'),
-    'select start': Key('cmd-shift-left'),
-    'select end': Key('cmd-shift-right'),
-    'select word': Key('alt-shift-right'),
-    'select left word': Key('alt-shift-left'),
-    'select right': Key('shift-right'),
-    'select left': Key('shift-left'),
+    # # Selecting text
+    # 'select line': Key('cmd-right cmd-shift-left'),
+    # 'select start': Key('cmd-shift-left'),
+    # 'select end': Key('cmd-shift-right'),
+    # 'select word': Key('alt-shift-right'),
+    # 'select left word': Key('alt-shift-left'),
+    # 'select right': Key('shift-right'),
+    # 'select left': Key('shift-left'),
     'select instances': Key('cmd-shift-l'),
+    
+    '(top | go to top)': Key('cmd-up'),    
 
     # Finding text
     '(previous | last)': Key('cmd-shift-g'),

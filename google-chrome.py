@@ -106,7 +106,10 @@ context.keymap({
     '(carbon copy | see see)': Key('cmd-shift-c'),
     '(blind carbon copy | bee see see)': Key('cmd-shift-b'),
     'misspelled word': Key('cmd-;'),
-    'suggestions': Key('cmd-m'),
+
+    # Not working
+    'word choice': Key('cmd-m'),
+        
     'remove format': Key('cmd-\\'),
     'bold': Key('cmd-b'),
     'italics': Key('cmd-i'),
