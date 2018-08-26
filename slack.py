@@ -7,15 +7,11 @@ keymap = {
     # Channel
     'channel': Key('cmd-k'),
     'channel last': Key('alt-up'),
-    'channel unread previous': Key('alt-shift-up'),
+    '[channel] unread last': Key('alt-shift-up'),
     'channel next': Key('alt-down'),
-    'channel unread next': Key('alt-shift-down'),
-    'channel info': Key('cmd-shift-i'),
-
-    # Tools
-    'tools command': ['``', Key('left')],
-    'tools code': ['``````', Key('left left left return return up')],
-
+    '[channel] unread [next]': Key('alt-shift-down'),
+    '[channel] info': Key('cmd-shift-i'),
+    
     # Navigation
     'move focus': Key('ctrl-`'),
     'next section': Key('f6'),
@@ -25,28 +21,29 @@ keymap = {
     '(open | collapse) right pane': Key('cmd-.'),
     'direct messages': Key('cmd-shift-k'),
     'threads': Key('cmd-shift-t'),
-    'history': Key('cmd-['),
-    '(back to the future | forward)': Key('cmd-]'),
+    '(history [next] | back | backward)': Key('cmd-['),
+    '(back to the future | ford | forward)': Key('cmd-]'),
     'next element': Key('tab'),
     'previous element': Key('shift-tab'),
     '(my stuff | activity)': Key('cmd-shift-m'),
     'directory': Key('cmd-shift-e'),
-    'starred items': Key('cmd-shift-s'),
-    'unread': Key('cmd-j'),
-    '(go | undo) full': Key('ctrl-cmd-f'),
+    '(starred [items] | stars)': Key('cmd-shift-s'),
+    'unread [messages]': Key('cmd-j'),
+    '(go | undo | toggle) full': Key('ctrl-cmd-f'),
 
     # Messaging
     'grab left': Key('shift-up'),
     'grab right': Key('shift-down'),
     'add line': Key('shift-enter'),
-    'slaw': [Key('cmd-right'), Key('shift-enter')],
+    '(slaw | slapper)': [Key('cmd-right'), Key('shift-enter')],
     '(react | reaction)': Key('cmd-shift-\\'),
     'user': Key('@'),
     'tag channel': Key('#'),
-    'codify': Key('cmd-shift-c'),
+    '([insert] command | commandify)': Key('cmd-shift-c'),
+    '[insert] code': ['``````', Key('left left left'), Key('shift-enter'), Key('shift-enter'), Key('up')],
     '(bullet | bulleted) list': Key('cmd-shift-8'),
     '(number | numbered) list': Key('cmd-shift-7'),
-    'quotation': Key('cmd-shift->'),
+    '(quotes | quotation)': Key('cmd-shift->'),
     'bold': Key('cmd-b'),
     '(italic | italicize)': Key('cmd-i'),
     '(strike | strikethrough)': Key('cmd-shift-x'),
@@ -62,6 +59,14 @@ keymap = {
     '([toggle] mute | unmute)': Key('m'),
     '([toggle] video)': Key('v'),
     'invite': Key('a'),
+    
+    # Emojis
+    'thumbs up': ':+1:',
+    'smiley': ':slightly_smiling_face:',
+    'laugh out loud': ':joy:',
+
+    # Miscellaneous
+    'shortcuts': Key('cmd-/'),
 }
 
 ctx.keymap(keymap)
