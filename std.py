@@ -201,17 +201,7 @@ keymap.update({
     'reverse': Key('tab'),
     'advance': Key('`'),
 
-    # Finder
-    'documents': Key('shift-cmd-o'),
-    'desktop': Key('shift-cmd-d'),
     'finder': Key('cmd-alt-space'),
-    'icon': Key('cmd-1'),
-    'list': Key('cmd-2'),
-    'column': Key('cmd-3'),
-    'cover': Key('cmd-4'),
-    'parent folder': Key('cmd-up'),
-    'open folder': Key('cmd-down'),
-    # 'pathway': Key('cmd-alt-c'),
 
     # Zoom
     'zoom in': Key('cmd-+'),
@@ -244,6 +234,7 @@ keymap.update({
     '(downscore | score)': '_',
     '(dubscore | double downscore | behm)': '__', 
     '(dubscore | double dash | behmdash)': '--', 
+    
     '(semi | semicolon)': ';',
     'colon': ':',
     '(square | left square [bracket] | bracket)': '[', '(rsquare | are square | right square [bracket])': ']',
