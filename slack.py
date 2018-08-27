@@ -9,7 +9,7 @@ keymap = {
     'channel last': Key('alt-up'),
     '[channel] unread last': Key('alt-shift-up'),
     'channel next': Key('alt-down'),
-    '[channel] unread [next]': Key('alt-shift-down'),
+    '[channel] unread next': Key('alt-shift-down'),
     '[channel] info': Key('cmd-shift-i'),
     
     # Navigation

@@ -242,7 +242,8 @@ keymap.update({
     '(bang | exclamation point)': '!',
     'dollar [sign]': '$',
     '(downscore | score)': '_',
-    '(dubscore | double downscore)': '__',
+    '(dubscore | double downscore | behm)': '__', 
+    '(dubscore | double dash | behmdash)': '--', 
     '(semi | semicolon)': ';',
     'colon': ':',
     '(square | left square [bracket] | bracket)': '[', '(rsquare | are square | right square [bracket])': ']',
@@ -331,8 +332,9 @@ keymap.update({
     'index': ['[]', Key('left')],
     'block': [' {}', Key('left enter enter up tab')],
     'empty array': '[]',
-    'empty dict': '{}',
+    'empty dict | braces': '{}',
 
+    # python
     'state (def | deaf | deft)': 'def ',
     'state else if': 'elif ',
     'state if': 'if ',
@@ -352,10 +354,8 @@ keymap.update({
     'state type deaf': 'typedef ',
     'state type deaf struct': ['typedef struct {\n\n};', Key('up'), '\t'],
 
-    'comment see': '// ',
-    'comment py': '# ',
-
     'word queue': 'queue',
+    'word none': 'None',
     'word eye': 'eye',
     'word bson': 'bson',
     'word iter': 'iter',
@@ -366,6 +366,7 @@ keymap.update({
     'word printf': 'printf',
     'word (dickt | dictionary)': 'dict',
     'word shell': 'shell',
+    'word to do': 'TODO',
 
     'word lunixbochs': 'lunixbochs',
     'word talon': 'talon',
@@ -387,7 +388,7 @@ keymap.update({
     '(minus | dash)': '-',
     'plus': '+',
     'arrow': '->',
-    '(fat arrow | fatty)': '=>',
+    '(fat arrow | fatty)': ' => ',
     '(call | parens | parenthesis)': '()',
     'indirect': '&',
     'dereference': '*',
