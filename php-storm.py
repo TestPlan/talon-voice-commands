@@ -27,7 +27,8 @@ keymap = {
     'else markup': ['elsem', Key('tab')],
     'complete': Key('cmd-shift-enter'),
     'definition': Key('alt-space'),
-}
+
+ }
 
 
 ctx.keymap(keymap)

@@ -5,7 +5,7 @@ ides = {
 }
 
 
-ctx = Context('phpstorm', func=lambda app, win: any(
+ctx = Context('spotify', func=lambda app, win: any(
     i in app.bundle for i in ides))
 
 keymap = {

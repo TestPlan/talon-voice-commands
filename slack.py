@@ -57,13 +57,14 @@ keymap = {
 
     # Calls
     '([toggle] mute | unmute)': Key('m'),
-    '([toggle] video)': Key('v'),
+    '[toggle] video': Key('v'),
     'invite': Key('a'),
     
     # Emojis
     'thumbs up': ':+1:',
     'smiley': ':slightly_smiling_face:',
     'laugh out loud': ':joy:',
+    'shruggie': '/shrug ',
 
     # Miscellaneous
     'shortcuts': Key('cmd-/'),

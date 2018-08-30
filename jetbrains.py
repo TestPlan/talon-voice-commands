@@ -16,10 +16,11 @@ ides = [
 ]
 
 
-ctx = Context('phpstorm', func=lambda app, win: any(
+ctx = Context('jetbrains', func=lambda app, win: any(
     i in app.bundle for i in ides))
 
 keymap = {
+    'clear': [Key('cmd-a'), Key('backspace')],
     'comment declaration': ['/**', Key('space')],
     'comment block': ['/**', Key('enter')],
     'block comment': Key('cmd-alt-/'),
@@ -50,7 +51,8 @@ keymap = {
     'grab down': Key('shift-cmd-pagedown'),
     # 'rename': Key('shift-f6'),
     'move file': Key('f6'),
-    'global search': Key('shift shift'),
+    'file search': Key('shift shift'),
+    'global search': Key('cmd-shift-f'),
     'go to file': Key('cmd-shift-n'),
     'format': Key('cmd-alt-l'),
     'expand': Key('cmd-+'),
@@ -62,7 +64,7 @@ keymap = {
     'snip right': Key('cmd-shift-right delete'),
     'move up': Key('alt-shift-up'),
     'move down': Key('alt-shift-down'),
-    'path': Key('cmd-shift-f'), 
+    'path': Key('cmd-shift-f'),
     'funk up': Key('cmd-shift-up'),
     'funk down': Key('cmd-shift-down'),
     '(breadcrumbs | crumbs)': Key('cmd-up'),

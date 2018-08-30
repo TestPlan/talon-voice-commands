@@ -79,6 +79,7 @@ context.keymap({
     'search': search,
     'print': print_page,
     'top': scroll_to_top,
+    'clear': [Key('cmd-a'), Key('backspace')],
 
     # youtube
     # disable vimium for youtube shortcuts to work
@@ -166,12 +167,15 @@ context.keymap({
     'find': Key('cmd-f'),
     'next match': Key('cmd-g'),
     '(last | prevous)': Key('cmd-shift-g'),
+    '(pushpin | pullpin)': Key('cmd-shift-x'),
 
     'clear cash': Key('cmd-shift-backspace'),
 
     # dev tools
     'toggle dev tools': Key('cmd-alt-i'),
     'command [menu]': Key('cmd-shift-p'),
+    'element': Key('cmd-shift-c'),
+    'mobile': Key('cmd-shift-m'),
     '(javascript (counsel | console) | javascript (counsel | console) close)': Key('cmd-alt-j'),
     'next panel': next_panel,
     '(last | prevous) panel': last_panel,
@@ -190,4 +194,7 @@ context.keymap({
 
     # Clipboard
     'paste same style': Key('cmd-alt-shift-v'),
+
+
+
 })

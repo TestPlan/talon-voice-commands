@@ -168,10 +168,26 @@ keymap.update({
     'kill': Key('ctrl-c'),
 
     #  Spectacle 
-    '(fullscreen | full)': Key('cmd-alt-f'),
-    'snapleft': Key('cmd-alt-left'),
-    'snapright': Key('cmd-alt-right'),
-
+    # '(fullscreen | full)': Key('cmd-alt-f'),
+    # 'snapleft': Key('cmd-alt-left'),
+    # 'snapright': Key('cmd-alt-right'),
+    # 'center': Key('alt-cmd-c'),
+    # # 'left half': Key('alt-cmd-left'),
+    # # 'right half': Key('alt-cmd-right'),
+    # 'tippy half': Key('alt-cmd-up'),
+    # 'flippy half': Key('alt-cmd-down'),
+    # 'upper left': Key('ctrl-cmd-left'),
+    # 'lower left': Key('ctrl-shift-cmd-left'),
+    # 'upper right': Key('ctrl-cmd-right'),
+    # 'lower right': Key('ctrl-shift-cmd-right'),
+    # 'next display': Key('ctrl-alt-cmd-right'),
+    # 'previous left': Key('ctrl-alt-cmd-left'),
+    # 'next third': Key('ctrl-alt-right'),
+    # 'previous third': Key('ctrl-alt-left'),
+    # 'make larger': Key('ctrl-alt-shift-right'),
+    # 'make smaller': Key('ctrl-alt-shift-left'),
+    # 'spec undo': Key('alt-cmd-z'),
+    # 'spec redo': Key('alt-shift-cmd-z'),
 
     'spotlight': Key('cmd-space'),
 
@@ -320,10 +336,12 @@ keymap.update({
     'tip double': 'double ',
 
     'args': ['()', Key('left')],
-    'index': ['[]', Key('left')],
+    'brackets': ['[]', Key('left')],
     'block': [' {}', Key('left enter enter up tab')],
     'empty array': '[]',
     'empty dict | braces': '{}',
+    # 'brace': [' else if ()', Key('left')],
+
 
     # python
     'state (def | deaf | deft)': 'def ',
