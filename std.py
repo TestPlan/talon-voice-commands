@@ -162,6 +162,8 @@ keymap.update({
     'up':    Key('up'),
     'down':  Key('down'),
 
+    'puter sleep': Key('ctrl-alt-shift-cmd-s'),
+
     'delete': Key('backspace'),
 
     'quit': Key('cmd-q'),
