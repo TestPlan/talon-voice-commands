@@ -163,11 +163,16 @@ keymap.update({
     'down':  Key('down'),
 
     'puter sleep': Key('ctrl-alt-shift-cmd-s'),
+    'puter down': Key('ctrl-alt-shift-cmd-d'),
+    'puter restart': Key('ctrl-alt-shift-cmd-r'),
+    'about this puter': Key('ctrl-alt-shift-cmd-a'),
 
     'delete': Key('backspace'),
 
     'quit': Key('cmd-q'),
     'kill': Key('ctrl-c'),
+
+
 
     #  Spectacle 
     # '(fullscreen | full)': Key('cmd-alt-f'),
