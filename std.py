@@ -2,11 +2,12 @@ from talon.voice import Word, Context, Key, Rep, RepPhrase, Str, press
 from talon import ctrl, clip
 from talon_init import TALON_HOME, TALON_PLUGINS, TALON_USER
 import string
+# from user.utils import parse_word, surround, text, sentence_text, word, parse_words
 
-alpha_alt = 'air bat cap die each fail gone harm sit jury crash look mad near odd pit quest red sun trap urge vest whale box yes zip'.split()
-###
+alpha_alt = 'air bat cap die each fail gone harm sit jury crash look mad near odd pit quest red sun trap urge vest ' \
+            'whale box yes zip'.split()
+
 alnum = list(zip(alpha_alt, string.ascii_lowercase)) + [(str(i), str(i)) for i in range(0, 10)]
-
 alpha = {}
 alpha.update(dict(alnum))
 alpha.update({'ship %s' % word: letter for word, letter in zip(alpha_alt, string.ascii_uppercase)})
@@ -19,18 +20,18 @@ keys = [
 ]
 keys = alnum + [(k, k) for k in keys]
 keys += [
-    ('tilde', '`'),
-    ('comma', ','),
-    ('dot', '.'),
-    ('slash', '/'),
-    ('(semi | semicolon)', ';'),
-    ('quote', "'"),
-    ('[left] square', '['),
-    ('(right | are) square', ']'),
-    ('backslash', '\\'),
-    ('minus', '-'),
-    ('equals', '='),
-] + fkeys
+            ('tilde', '`'),
+            ('comma', ','),
+            ('dot', '.'),
+            ('slash', '/'),
+            ('(semi | semicolon)', ';'),
+            ('quote', "'"),
+            ('[left] square', '['),
+            ('(right | are) square', ']'),
+            ('backslash', '\\'),
+            ('minus', '-'),
+            ('equals', '='),
+        ] + fkeys
 alpha.update({word: Key(key) for word, key in fkeys})
 alpha.update({'control %s' % k: Key('ctrl-%s' % v) for k, v in keys})
 alpha.update({'control shift %s' % k: Key('ctrl-shift-%s' % v) for k, v in keys})
@@ -50,10 +51,12 @@ mapping = {
 # used for auto-spacing
 punctuation = set('.,-!?')
 
+
 def parse_word(word):
     word = str(word).lstrip('\\').split('\\', 1)[0]
     word = mapping.get(word, word)
     return word
+
 
 def join_words(words, sep=' '):
     out = ''
@@ -63,29 +66,37 @@ def join_words(words, sep=' '):
         out += word
     return out
 
+
 def parse_words(m):
     return list(map(parse_word, m.dgndictation[0]._words))
+
 
 def insert(s):
     Str(s)(None)
 
+
 def text(m):
     insert(join_words(parse_words(m)).lower())
+
 
 def sentence_text(m):
     text = join_words(parse_words(m)).lower()
     insert(text.capitalize())
 
+
 def word(m):
     text = join_words(list(map(parse_word, m.dgnwords[0]._words)))
     insert(text.lower())
+
 
 def surround(by):
     def func(i, word, last):
         if i == 0: word = by + word
         if last: word += by
         return word
+
     return func
+
 
 def rot13(i, word, _):
     out = ''
@@ -95,21 +106,54 @@ def rot13(i, word, _):
         out += c
     return out
 
+
+# formatters = {
+#     'dunder': (True, lambda i, word, _: '__%s__' % word if i == 0 else word),
+#     'camel': (True, lambda i, word, _: word if i == 0 else word.capitalize()),
+#     'snake': (True, lambda i, word, _: word if i == 0 else '_' + word),
+#     'smash': (True, lambda i, word, _: word),
+#     # spinal or kebab?
+#     'truck': (True, lambda i, word, _: word if i == 0 else '-' + word),
+#     # 'sentence':  (False, lambda i, word, _: word.capitalize() if i == 0 else word),
+#     'title': (False, lambda i, word, _: word.capitalize()),
+#     'allcaps': (False, lambda i, word, _: word.upper()),
+#     'dubstring': (False, surround('"')),
+#     'string': (False, surround("'")),
+#     'padded': (False, surround(" ")),
+#     'rot-thirteen': (False, rot13),
+# }
+
 formatters = {
+    'cram':  (True, lambda i, word, _: word if i == 0 else word.capitalize()),
+    'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word),
+    'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word),
+    'yellsmash':  (True, lambda i, word, _: word.upper()),
+    'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper()),
+    'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize()),
+    'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " "+word),
+    'lowcram': (True, lambda i, word, _: '@'+word if i == 0 else word.capitalize()),
+    'criff': (True, lambda i, word, _: word.capitalize()),
+    'criffed': (True, lambda i, word, _: word.capitalize()),
+    'yeller': (False, lambda i, word, _: word.upper()),
     'dunder': (True,  lambda i, word, _: '__%s__' % word if i == 0 else word),
     'camel':  (True,  lambda i, word, _: word if i == 0 else word.capitalize()),
     'snake':  (True,  lambda i, word, _: word if i == 0 else '_'+word),
+    'dot':  (True,  lambda i, word, _: '.'+word if i == 0 else '_'+word),
     'smash':  (True,  lambda i, word, _: word),
     # spinal or kebab?
-    'truck':  (True,  lambda i, word, _: word if i == 0 else '-'+word),
+    'spine':  (True,  lambda i, word, _: word if i == 0 else '-'+word),
     # 'sentence':  (False, lambda i, word, _: word.capitalize() if i == 0 else word),
     'title':  (False, lambda i, word, _: word.capitalize()),
+    'tridal':  (False, lambda i, word, _: word.capitalize()),
     'allcaps': (False, lambda i, word, _: word.upper()),
     'dubstring': (False, surround('"')),
+    'coif': (False, surround('"')),
     'string': (False, surround("'")),
+    'posh': (False, surround("'")),
     'padded': (False, surround(" ")),
     'rot-thirteen':  (False, rot13),
 }
+
 
 def FormatText(m):
     fmt = []
@@ -131,7 +175,7 @@ def FormatText(m):
         word = parse_word(word)
         for name in reversed(fmt):
             smash, func = formatters[name]
-            word = func(i, word, i == len(words)-1)
+            word = func(i, word, i == len(words) - 1)
             spaces = spaces and not smash
         tmp.append(word)
     words = tmp
@@ -140,6 +184,7 @@ def FormatText(m):
     if not spaces:
         sep = ''
     Str(sep.join(words))(None)
+
 
 ctx = Context('input')
 keymap = {}
@@ -157,47 +202,28 @@ keymap.update({
 
     'tab': Key('tab'),
     '(backtab | back tab)': Key('shift-tab'),
-    '(left | lef)':  Key('left'),
+    '(left | lef)': Key('left'),
     'right': Key('right'),
-    'up':    Key('up'),
-    'down':  Key('down'),
+    'up': Key('up'),
+    'down': Key('down'),
 
     'puter sleep': Key('ctrl-alt-shift-cmd-s'),
     'puter down': Key('ctrl-alt-shift-cmd-d'),
     'puter restart': Key('ctrl-alt-shift-cmd-r'),
     'about this puter': Key('ctrl-alt-shift-cmd-a'),
+    # 'exit talent': Key('ctrl-alt-shift-cmd-t'),
 
     'delete': Key('backspace'),
 
     'quit': Key('cmd-q'),
     'kill': Key('ctrl-c'),
+    'screenshot page': Key('alt-shift-p'),
 
 
-
-    #  Spectacle 
-    # '(fullscreen | full)': Key('cmd-alt-f'),
-    # 'snapleft': Key('cmd-alt-left'),
-    # 'snapright': Key('cmd-alt-right'),
-    # 'center': Key('alt-cmd-c'),
-    # # 'left half': Key('alt-cmd-left'),
-    # # 'right half': Key('alt-cmd-right'),
-    # 'tippy half': Key('alt-cmd-up'),
-    # 'flippy half': Key('alt-cmd-down'),
-    # 'upper left': Key('ctrl-cmd-left'),
-    # 'lower left': Key('ctrl-shift-cmd-left'),
-    # 'upper right': Key('ctrl-cmd-right'),
-    # 'lower right': Key('ctrl-shift-cmd-right'),
-    # 'next display': Key('ctrl-alt-cmd-right'),
-    # 'previous left': Key('ctrl-alt-cmd-left'),
-    # 'next third': Key('ctrl-alt-right'),
-    # 'previous third': Key('ctrl-alt-left'),
-    # 'make larger': Key('ctrl-alt-shift-right'),
-    # 'make smaller': Key('ctrl-alt-shift-left'),
-    # 'spec undo': Key('alt-cmd-z'),
-    # 'spec redo': Key('alt-shift-cmd-z'),
+    # my stuff
+    'my e-mail': 'ianmarkind@gmail.com',
 
     'spotlight': Key('cmd-space'),
-
 
     'cut': Key('cmd-x'),
     'copy': Key('cmd-c'),
@@ -229,14 +255,14 @@ keymap.update({
     # Zoom
     'zoom in': Key('cmd-+'),
     'zoom out': Key('cmd--'),
- 
+
     '(comment | uncomment)': Key('cmd-/'),
     'start': Key('cmd-left'),
     'end': Key('cmd-right'),
-    'page up': Key('pageup'),    
+    'page up': Key('pageup'),
     'page down': Key('pagedown'),
     'jump [right] word': Key('alt-right'),
-    'jump left word': Key('alt-left'),    
+    'jump left word': Key('alt-left'),
 
     # Selecting text
     'select line': Key('cmd-right cmd-shift-left'),
@@ -255,9 +281,9 @@ keymap.update({
     '(bang | exclamation point)': '!',
     'dollar [sign]': '$',
     '(downscore | score)': '_',
-    '(dubscore | double downscore | behm)': '__', 
-    '(dubscore | double dash | behmdash)': '--', 
-    
+    '(dubscore | double downscore | behm)': '__',
+    '(dubscore | double dash | behmdash)': '--',
+
     '(semi | semicolon)': ';',
     'colon': ':',
     '(square | left square [bracket] | bracket)': '[', '(rsquare | are square | right square [bracket])': ']',
@@ -348,7 +374,6 @@ keymap.update({
     'empty array': '[]',
     'empty dict | braces': '{}',
     # 'brace': [' else if ()', Key('left')],
-
 
     # python
     'state (def | deaf | deft)': 'def ',
@@ -460,6 +485,4 @@ keymap.update({
     'scroll up more': [Key('up')] * 60,
 })
 ctx.keymap(keymap)
-
-
 

@@ -4,7 +4,6 @@ ctx = Context('bit-bucket', func=lambda app, win: 'Bitbucket' in win.title)
 
 keymap = {
     # All Pages
-
     'shortcuts': Key('?'),
     'left navigation': Key('['),
     'site search': Key('/'),
@@ -14,8 +13,8 @@ keymap = {
     'next item': Key('j'),
     'last item': Key('k'),
     'selected': Key('o'),
-    '[work] dashboard': Key('g d'),
-    '[bucket] settings': Key('g a'),
+    'dashboard': Key('g d'),
+    'settings': Key('g a'),
     'remove focus': Key('esc'),
     'go back': Key('u'),
     'right navigation': Key(']'),
@@ -25,19 +24,19 @@ keymap = {
 
     # Repository pages (except source)
     'create': Key('c r'),
-    'import': Key('I r'),
+    'import': Key('i r'),
     'source': Key('r s'),
     'view commits': Key('r c'),
     'view branches': Key('r b'),
     'pull requests': Key('r p'),
     'issues': Key('r i'),
     'wiki': Key('r w'),
-    'show downloads': Key('r d'),
+    'downloads': Key('r d'),
     'repo settings': Key('r a'),
     'find file': Key('f'),
 
     # Repository pages (except source and settings)
-    'fork repository': Key('x f'),
+    'fork': Key('x f'),
     'create branch': Key('x b'),
     'compare': Key('x c'),
     'create pull request': Key('x p'),

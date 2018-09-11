@@ -38,6 +38,7 @@ def focus_address_bar(m):
 
 def search(m):
     press('cmd-m')
+    press('cmd-shift-.')
 
 
 def scroll_to_top(m):

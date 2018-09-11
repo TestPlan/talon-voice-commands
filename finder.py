@@ -1,6 +1,17 @@
-from talon.voice import Key, Context
+from talon.voice import Key, Context, Str, press
+
 
 ctx = Context('Finder', bundle='com.apple.finder')
+
+
+def go_to_path(path):
+    def path_function(m):
+        press('cmd-shift-g')
+        Str(path)(None)
+        press('return')
+    return path_function
+
+
 ctx.keymap({
     '(dupe | duplicate)': Key('cmd-d'),
     'trash it': Key('cmd-backspace'),
@@ -18,6 +29,15 @@ ctx.keymap({
     'home': Key('shift-cmd-h'),
     'iCloud': Key('shift-cmd-i'),
     'airdrop': Key('shift-cmd-r'),
+    'talon': go_to_path('~/.talon/user'),
+    'code': go_to_path('~/code'),
+    'pictures': go_to_path('~/Pictures'),
+    'music': go_to_path('~/Music'),
+    'movies': go_to_path('~/Movies'),
+    'dropbox': go_to_path('~/Dropbox'),
+    'books': go_to_path('~/Books'),
+    'local sites': go_to_path('~/Local Sites'),
+    'next level': go_to_path('~/Documents/Client Work/Next Level'),
 
     # views
     'icon': Key('cmd-1'),
@@ -45,7 +65,6 @@ ctx.keymap({
     'open': Key('cmd-down'),
     '(info | information)': Key('cmd-i'),
 
-
     # other actions
     '[toggle] preview': Key('shift-cmd-p'),
     'eject': Key('cmd-e'),
@@ -56,5 +75,4 @@ ctx.keymap({
     'add to sidebar': Key('ctrl-cmd-t'),
     'show package contents': Key('cmd-alt-o'),
     # 'pathway': Key('cmd-alt-c'),
- })
-
+})

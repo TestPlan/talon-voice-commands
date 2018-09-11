@@ -4,7 +4,9 @@ ctx = Context('android-messages', func=lambda app, win: 'Messages for web' in wi
 
 keymap = {
 
-    'new conversation': Key('cmd-alt-c'),
+    # Collides with spectacle
+    'new': Key('cmd-alt-c'),
+    
     'next conversation': Key('ctrl-.'),
     'previous conversation': Key('ctrl-,'),
     'delete conversation': Key('cmd-alt-r'),

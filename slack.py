@@ -29,7 +29,10 @@ keymap = {
     'directory': Key('cmd-shift-e'),
     '(starred [items] | stars)': Key('cmd-shift-s'),
     'unread [messages]': Key('cmd-j'),
+    'top': Key('cmd-up'),
+    'bottom': Key('cmd-down'),
     '(go | undo | toggle) full': Key('ctrl-cmd-f'),
+
 
     # Messaging
     'grab left': Key('shift-up'),
