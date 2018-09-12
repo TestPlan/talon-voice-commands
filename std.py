@@ -219,10 +219,6 @@ keymap.update({
     'kill': Key('ctrl-c'),
     'screenshot page': Key('alt-shift-p'),
 
-
-    # my stuff
-    'my e-mail': 'ianmarkind@gmail.com',
-
     'spotlight': Key('cmd-space'),
 
     'cut': Key('cmd-x'),
