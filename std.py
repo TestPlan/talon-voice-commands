@@ -216,7 +216,7 @@ keymap.update({
 
     'delete': Key('backspace'),
 
-    'quit': Key('cmd-q'),
+    'run quit': Key('cmd-q'),
     'kill': Key('ctrl-c'),
     'screenshot page': Key('alt-shift-p'),
     'screenshot manual': Key('cmd-shift-4'),
