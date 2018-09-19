@@ -173,9 +173,9 @@ context.keymap({
     'clear cash': Key('cmd-shift-backspace'),
 
     # dev tools
-    'toggle dev tools': Key('cmd-alt-i'),
+    '[toggle] dev tools': Key('cmd-alt-i'),
     'command [menu]': Key('cmd-shift-p'),
-    'element': Key('cmd-shift-c'),
+    'selector': Key('cmd-shift-c'),
     'mobile': Key('cmd-shift-m'),
     '(javascript (counsel | console) | javascript (counsel | console) close)': Key('cmd-alt-j'),
     'next panel': next_panel,

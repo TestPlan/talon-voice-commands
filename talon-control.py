@@ -11,8 +11,11 @@ from talon.engine import engine
 from talon.voice import Context, ContextGroup, talon
 import eye_mouse, os
 
-# Because the Voice Commands on this Context are in their own ContextGroup, they are treated separatedly from the other ContextGroups (including the default one: talon)
-# By disabling the default talon ContextGroup, we can effectively turn off recognition, save for the Voice Commands in this file
+
+# Because the Voice Commands on this Context are in their own ContextGroup, they are treated separatedly from the other
+# ContextGroups (including the default one: talon)
+# By disabling the default talon ContextGroup, we can effectively turn off recognition, save for the Voice Commands in
+# this file
 def enable_talon():
     talon.enable()
     app.icon_color(0, 0.7, 0, 1)
@@ -21,14 +24,17 @@ def enable_talon():
     # Ensure Dragon dictation is off, even if it wasn't enabled
     engine.mimic('go to sleep'.split())
 
+
 def disable_talon():
     talon.disable()
     app.icon_color(1, 0, 0, 1)
     lib.menu_check(b'!Enable Speech Recognition', False)
 
+
 def enable_dragon_mode():
     disable_talon()
     engine.mimic('wake up'.split())
+
 
 # Creates extra menu item for toggling Speech Recognition
 def on_menu(item):
@@ -38,8 +44,8 @@ def on_menu(item):
         else:
             enable_talon()
 
-app.register('menu', on_menu)
 
+app.register('menu', on_menu)
 
 
 # Adapted from debug.py listed in the Slash channel
@@ -49,7 +55,9 @@ def debug_listener(topic, m):
     else:
         print(topic, m)
 
+
 is_debug_enabled = False
+
 
 def set_debug_enabled(enable):
     global is_debug_enabled
@@ -67,18 +75,16 @@ def set_debug_enabled(enable):
     is_debug_enabled = enable
 
 
-
 def open_debug_log(m):
-    # Opens the Talon logs in Console.app, which is where print statements and debugging data is usually sent unless Repl is active
+    # Opens the Talon logs in Console.app, which is where print statements and debugging data is usually sent unless
+    # Repl is active
     os.system('open -a Console ~/.talon/talon.log')
-
 
 
 def on_eye_control(menu_string):
     # Respect the enabled-ness of default talon ContextGroup for these Voice Commands
     if talon.enabled:
         eye_mouse.on_menu(menu_string)
-
 
 
 context_group = ContextGroup('talon_control')
@@ -103,8 +109,10 @@ context.keymap({
     # Toggle various eye tracking systems
     'talon (calibrate | calibration)': lambda m: on_eye_control('Eye Tracking >> Calibrate'),
     'talon mouse [control]': lambda m: on_eye_control('Eye Tracking >> Control Mouse'),
-    'talon zoom [mouse]': lambda m: on_eye_control('Eye Tracking >> Control Mouse (Zoom)'), # Currently doesn't work for unknown reasons
-    'talon keyboard': lambda m: on_eye_control('Eye Tracking >> Keyboard'), # Currently doesn't work for unknown reasons
+    'talon zoom [mouse]': lambda m: on_eye_control('Eye Tracking >> Control Mouse (Zoom)'),
+    # Currently doesn't work for unknown reasons
+    'talon keyboard': lambda m: on_eye_control('Eye Tracking >> Keyboard'),
+    # Currently doesn't work for unknown reasons
     'talon eye debug': lambda m: on_eye_control('Eye Tracking >> Show Debug Overlay'),
     'talon eye camera': lambda m: on_eye_control('Eye Tracking >> Show Camera Overlay'),
 })

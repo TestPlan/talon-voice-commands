@@ -2,6 +2,7 @@ from talon.voice import Word, Context, Key, Rep, RepPhrase, Str, press
 from talon import ctrl, clip
 from talon_init import TALON_HOME, TALON_PLUGINS, TALON_USER
 import string
+
 # from user.utils import parse_word, surround, text, sentence_text, word, parse_words
 
 alpha_alt = 'air bat cap die each fail gone harm sit jury crash look mad near odd pit quest red sun trap urge vest ' \
@@ -124,34 +125,34 @@ def rot13(i, word, _):
 # }
 
 formatters = {
-    'cram':  (True, lambda i, word, _: word if i == 0 else word.capitalize()),
-    'pathway':  (True, lambda i, word, _: word if i == 0 else '/'+word),
-    'dotsway':  (True, lambda i, word, _: word if i == 0 else '.'+word),
-    'yellsmash':  (True, lambda i, word, _: word.upper()),
-    'yellsnik':  (True, lambda i, word, _: word.upper() if i == 0 else '_'+word.upper()),
-    'dollcram': (True, lambda i, word, _: '$'+word if i == 0 else word.capitalize()),
-    'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " "+word),
-    'lowcram': (True, lambda i, word, _: '@'+word if i == 0 else word.capitalize()),
+    'cram': (True, lambda i, word, _: word if i == 0 else word.capitalize()),
+    'pathway': (True, lambda i, word, _: word if i == 0 else '/' + word),
+    'dotsway': (True, lambda i, word, _: word if i == 0 else '.' + word),
+    'yellsmash': (True, lambda i, word, _: word.upper()),
+    'yellsnik': (True, lambda i, word, _: word.upper() if i == 0 else '_' + word.upper()),
+    'dollcram': (True, lambda i, word, _: '$' + word if i == 0 else word.capitalize()),
+    'champ': (True, lambda i, word, _: word.capitalize() if i == 0 else " " + word),
+    'lowcram': (True, lambda i, word, _: '@' + word if i == 0 else word.capitalize()),
     'criff': (True, lambda i, word, _: word.capitalize()),
     'criffed': (True, lambda i, word, _: word.capitalize()),
     'yeller': (False, lambda i, word, _: word.upper()),
-    'dunder': (True,  lambda i, word, _: '__%s__' % word if i == 0 else word),
-    'camel':  (True,  lambda i, word, _: word if i == 0 else word.capitalize()),
-    'snake':  (True,  lambda i, word, _: word if i == 0 else '_'+word),
-    'dot':  (True,  lambda i, word, _: '.'+word if i == 0 else '_'+word),
-    'smash':  (True,  lambda i, word, _: word),
+    'dunder': (True, lambda i, word, _: '__%s__' % word if i == 0 else word),
+    'camel': (True, lambda i, word, _: word if i == 0 else word.capitalize()),
+    'snake': (True, lambda i, word, _: word if i == 0 else '_' + word),
+    'dot': (True, lambda i, word, _: '.' + word if i == 0 else '_' + word),
+    'smash': (True, lambda i, word, _: word),
     # spinal or kebab?
-    'spine':  (True,  lambda i, word, _: word if i == 0 else '-'+word),
+    'spine': (True, lambda i, word, _: word if i == 0 else '-' + word),
     # 'sentence':  (False, lambda i, word, _: word.capitalize() if i == 0 else word),
-    'title':  (False, lambda i, word, _: word.capitalize()),
-    'tridal':  (False, lambda i, word, _: word.capitalize()),
+    'title': (False, lambda i, word, _: word.capitalize()),
+    'tridal': (False, lambda i, word, _: word.capitalize()),
     'allcaps': (False, lambda i, word, _: word.upper()),
     'dubstring': (False, surround('"')),
     'coif': (False, surround('"')),
     'string': (False, surround("'")),
     'posh': (False, surround("'")),
     'padded': (False, surround(" ")),
-    'rot-thirteen':  (False, rot13),
+    'rot-thirteen': (False, rot13),
 }
 
 
@@ -218,8 +219,12 @@ keymap.update({
     'quit': Key('cmd-q'),
     'kill': Key('ctrl-c'),
     'screenshot page': Key('alt-shift-p'),
+    'screenshot manual': Key('cmd-shift-4'),
 
     'spotlight': Key('cmd-space'),
+
+    # Yarn
+    'run server': ['yarn start', Key('return')],
 
     'cut': Key('cmd-x'),
     'copy': Key('cmd-c'),
@@ -262,12 +267,14 @@ keymap.update({
 
     # Selecting text
     'select line': Key('cmd-right cmd-shift-left'),
+    'select copy': Key('cmd-right cmd-shift-left cmd-c'),
+    'select cut': Key('cmd-right cmd-shift-left cmd-x'),
     'select start': Key('cmd-shift-left'),
     'select end': Key('cmd-shift-right'),
-    'select word': Key('alt-shift-right'),
-    'select left word': Key('alt-shift-left'),
     'select right': Key('shift-right'),
     'select left': Key('shift-left'),
+    'select word left': Key('left shift-right left alt-left shift-alt-right'),
+    'select word [right]': Key('right shift-left right alt-right shift-alt-left'),
 
     'slap': [Key('cmd-right enter')],
     'enter': Key('enter'),
@@ -278,8 +285,7 @@ keymap.update({
     'dollar [sign]': '$',
     '(downscore | score)': '_',
     '(dubscore | double downscore | behm)': '__',
-    '(dubscore | double dash | behmdash)': '--',
-
+    '(dubdash | double dash | behmdash)': '--',
     '(semi | semicolon)': ';',
     'colon': ':',
     '(square | left square [bracket] | bracket)': '[', '(rsquare | are square | right square [bracket])': ']',
@@ -481,4 +487,3 @@ keymap.update({
     'scroll up more': [Key('up')] * 60,
 })
 ctx.keymap(keymap)
-

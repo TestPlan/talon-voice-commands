@@ -15,7 +15,6 @@ ides = [
     "com.google.android.studio",
 ]
 
-
 ctx = Context('jetbrains', func=lambda app, win: any(
     i in app.bundle for i in ides))
 
@@ -70,7 +69,6 @@ keymap = {
     '(breadcrumbs | crumbs)': Key('cmd-up'),
 
 }
-
 
 ctx.keymap(keymap)
 

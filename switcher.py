@@ -6,6 +6,7 @@ import os
 running = {}
 launch = {}
 
+
 def switch_app(m):
     name = str(m['switcher.running'][0])
     full = running.get(name)
@@ -17,17 +18,20 @@ def switch_app(m):
             time.sleep(0.25)
             break
 
+
 def launch_app(m):
     name = str(m['switcher.launch'][0])
     path = launch.get(name)
     if path:
         ui.launch(path=path)
 
+
 ctx = Context('switcher')
 ctx.keymap({
     'focus {switcher.running}': switch_app,
     'launch {switcher.launch}': launch_app,
 })
+
 
 def update_lists():
     global running
@@ -59,9 +63,11 @@ def update_lists():
     launch = new
     ctx.set_list('launch', launch.keys())
 
+
 def ui_event(event, arg):
     if event in ('app_activate', 'app_launch', 'app_close', 'win_open', 'win_close'):
         update_lists()
+
 
 ui.register('', ui_event)
 update_lists()
