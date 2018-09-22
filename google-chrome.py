@@ -80,6 +80,16 @@ context.keymap({
     'search': search,
     'print': print_page,
     'top': scroll_to_top,
+
+    # shortkeys plugin
+    'bottom': Key('ctrl-b'),
+    'copy euro': Key('ctrl-u'),
+    'google it': Key('ctrl-g'),
+    'move tab left': Key('ctrl-l'),
+    'move tab right': Key('ctrl-r'),
+
+
+
     'clear': [Key('cmd-a'), Key('backspace')],
 
     # youtube

@@ -59,6 +59,14 @@ def blade_if():
     return blade_if_function
 
 
+def blade_else():
+    def blade_else_function(m):
+        Str('@else')(None)
+        press('return')
+
+    return blade_else_function
+
+
 def blade_section():
     def blade_section_function(m):
         Str('@section(\'\')')(None)
@@ -90,14 +98,6 @@ def blade_if_else():
     return blade_if_else_function
 
 
-def blade_else():
-    def blade_else_function(m):
-        Str('@else')(None)
-        press('return')
-
-    return blade_else_function
-
-
 def blade_php():
     def blade_php_function(m):
         Str('@php  @endphp')(None)
@@ -126,13 +126,13 @@ keymap = {
     'blade include': blade_include(),
     'blade else': blade_else(),
     'blade for each': blade_for_each(),
+    'blade section': blade_section(),
     'blade data': '{{ ',
     'blade continue': '@continue',
     'blade break': '@break',
     'blade parent': '@parent',
     'blade case': ['@case()', Key('left')],
     'blade extends': ['@extends(\'\')', Key('left'), Key('left')],
-    'blade section': blade_section(),
     'blade loop': '$loop',
     'blade raw data': '{!',
 
@@ -145,6 +145,7 @@ keymap = {
 
     # Foundation CSS Framework
     'ramcalc': ['rem-calc()', Key('left')],
+    'breakpoint': '@include breakpoint() {',
 
     '(flip | phiz | fizz)': ['php', Key('tab')],
     'party': ['phps', Key('tab')],

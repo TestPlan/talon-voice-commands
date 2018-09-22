@@ -207,6 +207,7 @@ keymap.update({
     'right': Key('right'),
     'up': Key('up'),
     'down': Key('down'),
+    'dot (calm | com)': '.com',
 
     'puter sleep': Key('ctrl-alt-shift-cmd-s'),
     'puter down': Key('ctrl-alt-shift-cmd-d'),
@@ -215,7 +216,7 @@ keymap.update({
     # 'exit talent': Key('ctrl-alt-shift-cmd-t'),
 
     'delete': Key('backspace'),
-
+    'slurp': Key('right backspace'),
     'run quit': Key('cmd-q'),
     'kill': Key('ctrl-c'),
     'screenshot page': Key('alt-shift-p'),
@@ -378,18 +379,10 @@ keymap.update({
     # 'brace': [' else if ()', Key('left')],
 
     # python
-    'state (def | deaf | deft)': 'def ',
-    'state else if': 'elif ',
-    'state if': 'if ',
-    'state else if': [' else if ()', Key('left')],
-    'state while': ['while ()', Key('left')],
-    'state for': ['for ()', Key('left')],
-    'state for': 'for ',
     'state switch': ['switch ()', Key('left')],
     'state case': ['case \nbreak;', Key('up')],
     'state goto': 'goto ',
     'state import': 'import ',
-    'state class': 'class ',
 
     'state include': '#include ',
     'state include system': ['#include <>', Key('left')],
