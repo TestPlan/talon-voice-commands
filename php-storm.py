@@ -8,11 +8,23 @@ ctx = Context('phpstorm', func=lambda app, win: any(
     i in app.bundle for i in ides))
 
 
+def foundation_breakpoint():
+    def foundation_breakpoint_function(m):
+        Str('@include breakpoint() {')(None)
+        press('enter')
+        press('cmd-right')
+        press('up')
+        for x in range(3):
+            press('left')
+
+    return foundation_breakpoint_function
+
+
 def blade_switch():
     def blade_switch_function(m):
         Str('@switch($)')(None)
         press('return')
-        for x in range(0, 3):
+        for x in range(3):
             Str('@case()')(None)
             press('return')
             press('return')
@@ -24,7 +36,7 @@ def blade_switch():
         press('return')
         Str('@endswitch')(None)
         press('shift-tab')
-        for x in range(0, 15):
+        for x in range(15):
             press('up')
         press('left')
 
@@ -91,7 +103,7 @@ def blade_if_else():
         press('return')
         Str('@endif')(None)
         press('shift-tab')
-        for x in range(0, 4):
+        for x in range(4):
             press('up')
         press('left')
 
@@ -101,7 +113,7 @@ def blade_if_else():
 def blade_php():
     def blade_php_function(m):
         Str('@php  @endphp')(None)
-        for x in range(0, 8):
+        for x in range(8):
             press('left')
 
     return blade_php_function
@@ -110,13 +122,31 @@ def blade_php():
 def blade_include():
     def blade_include_function(m):
         Str('@include(\'\')')(None)
-        for x in range(0, 2):
+        for x in range(2):
             press('left')
 
     return blade_include_function
 
 
 keymap = {
+    # PHP
+    'echo': ['echo ;', Key('left')],
+    'if': ['if', Key('tab')],
+    'if markup': ['ifm', Key('tab')],
+    'else if': ['elif', Key('tab')],
+    'else if markup': ['elifm', Key('tab')],
+    'else': ['else', Key('tab')],
+    'else markup': ['elsem', Key('tab')],
+    '(flip | phiz | fizz)': ['php', Key('tab')],
+    'party': ['phps', Key('tab')],
+    '(start flip | start phiz | start fizz)': '<?php ',
+    '(end flip | end phiz | end fizz)': '?> ',
+    # 'search': [Key('shift'), Key('shift')],
+    'golf': ['fore', Key('tab')],
+    'horse': ['for', Key('tab')],
+    'horse markup': ['formk', Key('tab')],
+    'chop': ['forek', Key('tab')],
+    'eagles': ['?=', Key('tab')],
 
     # blade
     'blade if': blade_if(),
@@ -145,24 +175,7 @@ keymap = {
 
     # Foundation CSS Framework
     'ramcalc': ['rem-calc()', Key('left')],
-    'breakpoint': '@include breakpoint() {',
-
-    '(flip | phiz | fizz)': ['php', Key('tab')],
-    'party': ['phps', Key('tab')],
-    '(start flip | start phiz | start fizz)': '<?php ',
-    '(end flip | end phiz | end fizz)': '?> ',
-    # 'search': [Key('shift'), Key('shift')],
-    'golf': ['fore', Key('tab')],
-    'horse': ['for', Key('tab')],
-    'horse markup': ['formk', Key('tab')],
-    'chop': ['forek', Key('tab')],
-    'eagles': ['?=', Key('tab')],
-    'if': ['if', Key('tab')],
-    'if markup': ['ifm', Key('tab')],
-    'else if': ['elif', Key('tab')],
-    'else if markup': ['elifm', Key('tab')],
-    'else': ['else', Key('tab')],
-    'else markup': ['elsem', Key('tab')],
+    'breakpoint': foundation_breakpoint(),
     'complete': Key('cmd-shift-enter'),
     'definition': Key('alt-space'),
 

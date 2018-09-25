@@ -8,6 +8,7 @@ keymap = {
     # Basic Python
     f'{PYTHON} self': 'self',
     f'{PYTHON} from': 'from ',
+    f'{PYTHON} raise': 'raise ',
     f'{PYTHON} import': 'import ',
     f'{PYTHON} break': 'break',
     f'{PYTHON} continue': 'continue',
@@ -27,10 +28,10 @@ keymap = {
     f'{PYTHON} in it': ['def __init__(self, ):', Key('left left')],
 
     # list methods
+    f'{PYTHON} pop': ['pop()', Key('left')],
     f'{PYTHON} append': ['append()', Key('left')],
     f'{PYTHON} count': ['count()', Key('left')],
     f'{PYTHON} index': ['index()', Key('left')],
-    f'{PYTHON} pop': ['pop()', Key('left')],
     f'{PYTHON} insert': ['insert()', Key('left')],
     f'{PYTHON} remove': ['remove()', Key('left')],
     f'{PYTHON} extend': ['extend()', Key('left')],
@@ -44,3 +45,4 @@ ctx.keymap(keymap)
 
 
 def unload(): ctx.unload()
+
