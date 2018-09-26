@@ -213,6 +213,7 @@ keymap.update({
     'puter down': Key('ctrl-alt-shift-cmd-d'),
     'puter restart': Key('ctrl-alt-shift-cmd-r'),
     'about this puter': Key('ctrl-alt-shift-cmd-a'),
+    '(doc | dock)': Key('alt-cmd-d'),
     # 'exit talent': Key('ctrl-alt-shift-cmd-t'),
 
     'delete': Key('backspace'),

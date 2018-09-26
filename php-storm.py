@@ -22,7 +22,7 @@ def foundation_breakpoint():
 
 def blade_switch():
     def blade_switch_function(m):
-        Str('@switch($)')(None)
+        Str('@switch ($)')(None)
         press('return')
         for x in range(3):
             Str('@case()')(None)
@@ -45,7 +45,7 @@ def blade_switch():
 
 def blade_for_each():
     def blade_for_each_function(m):
-        Str('@foreach($ as $)')(None)
+        Str('@foreach ($ as $)')(None)
         press('return')
         press('return')
         Str('@endforeach')(None)
@@ -55,6 +55,21 @@ def blade_for_each():
         press('left')
 
     return blade_for_each_function
+
+
+def blade_for():
+    def blade_for_function(m):
+        Str('@for ($i = 0; $i < ; $i++)')(None)
+        press('return')
+        press('return')
+        Str('@endfor')(None)
+        press('shift-tab')
+        press('up')
+        press('up')
+        for x in range(12):
+            press('right')
+
+    return blade_for_function
 
 
 def blade_if():
@@ -147,6 +162,7 @@ keymap = {
     'horse markup': ['formk', Key('tab')],
     'chop': ['forek', Key('tab')],
     'eagles': ['?=', Key('tab')],
+    'index': '$i',
 
     # blade
     'blade if': blade_if(),
@@ -155,6 +171,7 @@ keymap = {
     'blade php': blade_php(),
     'blade include': blade_include(),
     'blade else': blade_else(),
+    'blade for': blade_for(),
     'blade for each': blade_for_each(),
     'blade section': blade_section(),
     'blade data': '{{ ',
@@ -164,7 +181,28 @@ keymap = {
     'blade case': ['@case()', Key('left')],
     'blade extends': ['@extends(\'\')', Key('left'), Key('left')],
     'blade loop': '$loop',
+    'blade index': 'index',
+    'blade iteration': 'iteration',
+    'blade remaining': 'remaining',
+    'blade count': 'count',
+    'blade first': 'first',
+    'blade last': 'last',
+    'blade depth': 'depth',
     'blade raw data': '{!',
+
+    # HTML
+    'href': 'href=',
+    'id': 'id=',
+    'class': 'class=',
+    # Emmet
+    'section': ['section', Key('tab')],
+    'paragraph': ['p', Key('tab')],
+    'image': ['img', Key('tab')],
+    'div': ['div', Key('tab')],
+    'anchor': ['a', Key('tab')],
+    'break': ['br', Key('tab')],
+    'footer': ['footer', Key('tab')],
+    'body': ['body', Key('tab')],
 
     # CSS
     'with': ['width: ;', Key('left')],
@@ -178,6 +216,8 @@ keymap = {
     'breakpoint': foundation_breakpoint(),
     'complete': Key('cmd-shift-enter'),
     'definition': Key('alt-space'),
+    'medium': 'medium',
+    '(padding | patty)': 'padding',
 
 }
 
