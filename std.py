@@ -5,7 +5,7 @@ import string
 
 # from user.utils import parse_word, surround, text, sentence_text, word, parse_words
 
-alpha_alt = 'air bat cap die each fail gone harm sit jury crash look mad near odd pit quest red sun trap urge vest ' \
+alpha_alt = 'air bat cap die each fail gone harm sit jury crash look mad near owl pit quest red sun trap urge vest ' \
             'whale box yes zip'.split()
 
 alnum = list(zip(alpha_alt, string.ascii_lowercase)) + [(str(i), str(i)) for i in range(0, 10)]
@@ -207,7 +207,9 @@ keymap.update({
     'right': Key('right'),
     'up': Key('up'),
     'down': Key('down'),
-    'dot (calm | com)': '.com',
+    'dot (calm | com)': '.comffset-key="ba538d3bb2',
+    'protocol': 'http://',
+    'secure protocol': 'https://',
 
     'puter sleep': Key('ctrl-alt-shift-cmd-s'),
     'puter down': Key('ctrl-alt-shift-cmd-d'),

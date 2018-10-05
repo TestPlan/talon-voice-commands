@@ -3,8 +3,7 @@ from talon.voice import Context, Key
 ctx = Context('spectacle')
 
 keymap = {
-
-    'center': Key('alt-cmd-c'),
+    'snap center': Key('alt-cmd-c'),
     '(fullscreen | full)': Key('cmd-alt-f'),
     'snapleft': Key('cmd-alt-left'),
     'snapright': Key('cmd-alt-right'),
@@ -22,7 +21,6 @@ keymap = {
     'make smaller': Key('ctrl-alt-shift-left'),
     'speck undo': Key('alt-cmd-z'),
     'speck redo': Key('alt-shift-cmd-z'),
-
 }
 
 ctx.keymap(keymap)
