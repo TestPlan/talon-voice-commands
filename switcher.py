@@ -32,6 +32,12 @@ ctx.keymap({
     'launch {switcher.launch}': launch_app,
 })
 
+applications = (
+    '/Applications',
+    '/Applications/Photoshop',
+    '/Applications/Utilities',
+    '/Applications/JetBrains/apps/WebStorm',
+)
 
 def update_lists():
     global running
@@ -49,7 +55,7 @@ def update_lists():
     ctx.set_list('running', running.keys())
 
     new = {}
-    for base in '/Applications', '/Applications/Photoshop', '/Applications/Utilities':
+    for base in applications:
         for name in os.listdir(base):
             path = os.path.join(base, name)
             name = name.rsplit('.', 1)[0]
