@@ -299,15 +299,15 @@ keymap = {
 
     # Pseudo Elements
     'after': '::after',
-    'active': '::active',
-    'visited': '::visited',
+    'active': ':active',
+    'visited': ':visited',
     'before': '::before',
     'first child': ':first-child',
     'last child': ':last-child',
     'first of type': ':first-of-type',
     'last of type': ':last-of-type',
     '(hover | however)': ':hover',
-    'focus': ':focus',
+    # 'focus': ':focus',
     'checked': ':checked',
     'valid': ':valid',
     'target': ':target',

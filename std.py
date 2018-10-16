@@ -376,7 +376,7 @@ keymap.update({
 
     'args': ['()', Key('left')],
     'brackets': ['[]', Key('left')],
-    'block': [' {}', Key('left enter enter up tab')],
+    'block': [' {}', Key('left enter')],
     'empty array': '[]',
     'empty dict | braces': '{}',
     # 'brace': [' else if ()', Key('left')],

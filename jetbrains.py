@@ -14,6 +14,7 @@ except ImportError:
     def delayed_click():
         ctrl.mouse_click(button=0)
 
+
 # region Supporting Code
 _numeral_map = dict((str(n), n) for n in range(0, 20))
 for n in range(20, 101, 10):
@@ -56,7 +57,7 @@ def text_to_range(words, delimiter="until"):
     tmp = [str(s).lower() for s in words]
     split = tmp.index(delimiter)
     start = text_to_number(words[:split])
-    end = text_to_number(words[split + 1:])
+    end = text_to_number(words[split + 1 :])
     return start, end
 
 
@@ -261,55 +262,55 @@ keymap.update(
             text,
             Key("enter"),
         ],
-
         # my old commands
-        'comment declaration': ['/**', Key('space')],
-        'comment block': ['/**', Key('enter')],
-        'block comment': Key('cmd-alt-/'),
-
-        '(dupe | duplicate)': Key('cmd-d'),
-        'import class': Key('alt-enter enter'),
-        'quickfix': Key('alt-enter'),
-        'go class': Key('cmd-o'),
-        'go file': Key('cmd-shift-o'),
-        '(go implement | go definition)': Key('cmd-b'),
-        'preev method': Key('ctrl-up'),
-        'neck method': Key('ctrl-down'),
-        'refactor': Key('shift-f6'),
-        'generate': Key('cmd-n'),
-        'recent': Key('cmd-e'),
-
-        'replace': Key('cmd-r'),
-        'find action': Key('cmd-shift-a'),
-        'settings': Key('cmd-,'),
-        'grab': Key('alt-up'),
-        'shrink': Key('alt-down'),
-        'grab left': Key('cmd-shift-left'),
-        'grab right': Key('cmd-shift-right'),
-        'close': Key('cmd-w'),
-        'go top': Key('cmd-home'),
-        'go bottom': Key('cmd-end'),
-        'grab up': Key('shift-cmd-pageup'),
-        'grab down': Key('shift-cmd-pagedown'),
+        "comment declaration": ["/**", Key("space")],
+        "comment block": ["/**", Key("enter")],
+        "block comment": Key("cmd-alt-/"),
+        "(dupe | duplicate)": Key("cmd-d"),
+        "import class": Key("alt-enter enter"),
+        "quickfix": Key("alt-enter"),
+        "go class": Key("cmd-o"),
+        "go file": Key("cmd-shift-o"),
+        "(go implement | go definition)": Key("cmd-b"),
+        "preev method": Key("ctrl-up"),
+        "neck method": Key("ctrl-down"),
+        "refactor": Key("shift-f6"),
+        "generate": Key("cmd-n"),
+        "recent": Key("cmd-e"),
+        "replace": Key("cmd-r"),
+        "find action": Key("cmd-shift-a"),
+        "settings": Key("cmd-,"),
+        "grab": Key("alt-up"),
+        "shrink": Key("alt-down"),
+        "grab left": Key("cmd-shift-left"),
+        "grab right": Key("cmd-shift-right"),
+        "close": Key("cmd-w"),
+        "go top": Key("cmd-home"),
+        "go bottom": Key("cmd-end"),
+        "grab up": Key("shift-cmd-pageup"),
+        "grab down": Key("shift-cmd-pagedown"),
         # 'rename': Key('shift-f6'),
-        'move file': Key('f6'),
-        'file search': Key('shift shift'),
-        'global search': Key('cmd-shift-f'),
-        'go to file': Key('cmd-shift-n'),
-        'format': Key('cmd-alt-l'),
-        'expand': Key('cmd-+'),
-        'collapse': Key('cmd--'),
-        'erase line': Key('cmd-backspace'),
-        'last change': Key('cmd-shift-backspace'),
-        '((open | close) terminal | terminal (open | close) | toggle terminal | terminal)': Key('alt-f12'),
-        'snip left': Key('cmd-shift-left delete'),
-        'snip right': Key('cmd-shift-right delete'),
-        'move up': Key('alt-shift-up'),
-        'move down': Key('alt-shift-down'),
-        'path': Key('cmd-shift-f'),
-        'funk up': Key('cmd-shift-up'),
-        'funk down': Key('cmd-shift-down'),
-        '(breadcrumbs | crumbs)': Key('cmd-up'),
+        "move file": Key("f6"),
+        "file search": Key("shift shift"),
+        "global search": Key("cmd-shift-f"),
+        "go to file": Key("cmd-shift-n"),
+        "format": Key("cmd-alt-l"),
+        "expand": Key("cmd-+"),
+        "collapse": Key("cmd--"),
+        "erase line": Key("cmd-backspace"),
+        "last change": Key("cmd-shift-backspace"),
+        "((open | close) terminal | terminal (open | close) | toggle terminal | terminal)": Key(
+            "alt-f12"
+        ),
+        "snip left": Key("cmd-shift-left delete"),
+        "snip right": Key("cmd-shift-right delete"),
+        "move up": Key("alt-shift-up"),
+        "move down": Key("alt-shift-down"),
+        "path": Key("cmd-shift-f"),
+        "funk up": Key("cmd-shift-up"),
+        "funk down": Key("cmd-shift-down"),
+        "clear": [Key("cmd-a"), Key("backspace")],
+        "(breadcrumbs | crumbs)": Key("cmd-up"),
     }
 )
 
