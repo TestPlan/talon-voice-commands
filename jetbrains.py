@@ -25,8 +25,8 @@ for n in range(1000, 10001, 1000):
     _numeral_map[str(n)] = n
 _numeral_map["oh"] = 0  # synonym for zero
 _numeral_map["and"] = None  # drop me
-_numerals = " (" + " | ".join(sorted(_numeral_map.keys())) + ")+"
-_optional_numerals = " (" + " | ".join(sorted(_numeral_map.keys())) + ")*"
+_numerals = " (" + " | ".join(sorted(_numeral_map.keys())) + ")++"
+_optional_numerals = " (" + " | ".join(sorted(_numeral_map.keys())) + ")**"
 
 
 def text_to_number(words):
