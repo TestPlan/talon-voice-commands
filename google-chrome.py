@@ -80,6 +80,7 @@ context.keymap({
     'search': search,
     'print': print_page,
     'top': scroll_to_top,
+    'admin': 'wp-admin',
 
     # shortkeys plugin
     'bottom': Key('ctrl-b'),
