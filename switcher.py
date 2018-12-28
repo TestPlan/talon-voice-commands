@@ -7,8 +7,10 @@ running = {}
 launch = {}
 
 
-def switch_app(m):
-    name = str(m['switcher.running'][0])
+def switch_app(m, name=None):
+    if name is None:
+        name = str(m['switcher.running'][0])
+
     full = running.get(name)
     if not full: return
     for app in ui.apps():
@@ -19,8 +21,10 @@ def switch_app(m):
             break
 
 
-def launch_app(m):
-    name = str(m['switcher.launch'][0])
+def launch_app(m, name=None):
+    if name is None:
+        name = str(m['switcher.launch'][0])
+
     path = launch.get(name)
     if path:
         ui.launch(path=path)
@@ -30,14 +34,16 @@ ctx = Context('switcher')
 ctx.keymap({
     'focus {switcher.running}': switch_app,
     'launch {switcher.launch}': launch_app,
+    # custom switchers here
+    "fox chrome": lambda x: switch_app(x, "Google Chrome"),
+    "fox storm": lambda x: switch_app(x, "PhpStorm"),
+    "fox web storm": lambda x: switch_app(x, "WebStorm"),
+    "fox pie charm": lambda x: switch_app(x, "PyCharm"),
+    "start storm": lambda x: launch_app(x, "PhpStorm"),
+    "start web storm": lambda x: launch_app(x, "WebStorm"),
+    "start pie charm": lambda x: launch_app(x, "PyCharm"),
 })
 
-applications = (
-    '/Applications',
-    '/Applications/Photoshop',
-    '/Applications/Utilities',
-    '/Applications/JetBrains/apps/WebStorm',
-)
 
 def update_lists():
     global running
@@ -55,7 +61,7 @@ def update_lists():
     ctx.set_list('running', running.keys())
 
     new = {}
-    for base in applications:
+    for base in '/Applications', '/Applications/Utilities':
         for name in os.listdir(base):
             path = os.path.join(base, name)
             name = name.rsplit('.', 1)[0]
