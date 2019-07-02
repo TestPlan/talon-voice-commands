@@ -271,6 +271,7 @@ keymap.update(
         "quickfix": Key("alt-enter"),
         "go class": Key("cmd-o"),
         "go file": idea("action GotoFile"),
+        "(distraction free | normal mode)": idea("action ToggleDistractionFreeMode"),
         # "go file": Key("cmd-shift-o"),
         "(go implement | go definition)": Key("cmd-b"),
         "preev method": Key("ctrl-up"),
@@ -312,6 +313,7 @@ keymap.update(
         "funk down": Key("cmd-shift-down"),
         "clear": [Key("cmd-a"), Key("backspace")],
         "(breadcrumbs | crumbs)": Key("cmd-up"),
+        "(pretty | prettier)": Key("alt-shift-cmd-p"),
     }
 )
 
